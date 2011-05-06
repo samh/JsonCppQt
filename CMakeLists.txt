@@ -5,13 +5,6 @@ project(jsoncpp-qt)
 # Look for extra CMake modules in a subdirectory of this project
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/" ${CMAKE_MODULE_PATH})
 
-# Up the compiler warnings
-set(EXTRA_WARNINGS off CACHE BOOL "Enable extra compiler warnings (-Wall)")
-if(EXTRA_WARNINGS)
-    include(EnableWarnings)
-endif(EXTRA_WARNINGS)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated")
-
 find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
 
