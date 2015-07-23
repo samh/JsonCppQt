@@ -8,8 +8,9 @@ QVariants, but it should be fine for smaller JSON files.
 
 JsonCpp itself is included in amalgamated form.
 
-The examples can be built with CMake:
+The examples can be built with CMake; for example:
 
     mkdir build
+    cd build
     cmake .. # or ccmake or cmake-gui
     make
