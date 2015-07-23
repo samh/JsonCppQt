@@ -18,8 +18,10 @@ void JsonValue_to_QVariant(const Json::Value& jv, QVariant& qv) {
         qv = QVariant();
         break;
     case intValue:
+        qv = QVariant(static_cast<qlonglong>(jv.asLargestInt()));
+        break;
     case uintValue:
-        qv = QVariant(jv.asLargestInt());
+        qv = QVariant(static_cast<qulonglong>(jv.asLargestUInt()));
         break;
     case realValue:
         qv = QVariant(jv.asDouble());
@@ -62,9 +64,11 @@ void QVariant_to_JsonValue(const QVariant& qv, Json::Value& jv) {
         break;
     case QVariant::Int:
     case QVariant::LongLong:
+        jv = static_cast<Json::Value::Int64>(qv.toLongLong());
+        break;
     case QVariant::UInt:
     case QVariant::ULongLong:
-        jv = qv.toLongLong();
+        jv = static_cast<Json::Value::UInt64>(qv.toULongLong());
         break;
     case QVariant::Double:
         jv = qv.toDouble();
